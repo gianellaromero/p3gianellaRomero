@@ -4,16 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Audit;
+use App\Traits;
 
 class StudentController extends Controller
 {
+    use auditTraits;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         
-       
+       $students = Student::All();
         //dd($students[0]->name);
        return view ('student.index',compact('students'));
     }
@@ -23,7 +26,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        //dd('llegó');
+        return view ('student.create');
     }
 
     /**
@@ -31,7 +35,15 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->status);
+        //dd($request->name,$request->lastname,$request->dni,$request->birthdate);
+        $student = new Student();
+        $student->name = $request->name;
+        $student->lastname = $request->lastname;
+        $student->dni = $request->dni;
+        $student->birthdate = $request->birthdate;
+        $student->status = $request->status;
+        $student->save();
     }
 
     /**
@@ -64,16 +76,21 @@ class StudentController extends Controller
         $student->name = $request->name;
         $student->save();
         return redirect()->route('students.index');
-        $audits = Audit::all();
+        
        
-        });
-    }
+        }
+    
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        
+        //dd($id);
+        Student::destroy($id);
+        return view ('student.delete');
+        //return redirect()->route('students.index');
+
     }
 }
