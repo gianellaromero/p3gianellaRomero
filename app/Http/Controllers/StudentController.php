@@ -13,9 +13,10 @@ class StudentController extends Controller
     public function index()
     {
         
-        $students = Student::all();
+       
         //dd($students[0]->name);
-        return view ('lista',compact('student')    }
+       return view ('student.index',compact('students'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -46,7 +47,10 @@ class StudentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        //d($id);
+        $student = Student::where('id',$id)->get();
+        //dd($student);
+        return view ('student.edit',compact('student'));
     }
 
     /**
@@ -54,7 +58,15 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //dd($request->all());
+        $student = Student::find($id);
+        //dd($student);
+        $student->name = $request->name;
+        $student->save();
+        return redirect()->route('students.index');
+        $audits = Audit::all();
+       
+        });
     }
 
     /**

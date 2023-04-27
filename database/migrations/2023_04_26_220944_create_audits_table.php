@@ -11,24 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('students', function (Blueprint $table) {
+        Schema::create('audits', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('lastname');
-            $table->string('dni');
             $table->timestamps();
-            $table->date('birthdate');
-            $table->boolean('status');
-
-
+            $table->text('log');
+            $table->enum('action',['A','B','M']);
+            $table->biginteger('user_id');
         });
     }
+    
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('students');
+        Schema::dropIfExists('audits');
     }
 };

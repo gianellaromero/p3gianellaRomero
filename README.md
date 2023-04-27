@@ -15,3 +15,8 @@ Route::get('/', function () {
 });
 Route::get('welcomee', function () {
     return view('index');
+    crear nuevo CONTROLADOR
+                MODELO 
+                 VISTA(index)
+    RUTA HTTP TIPO GET a un index
+    ACTION [A,B,M]
