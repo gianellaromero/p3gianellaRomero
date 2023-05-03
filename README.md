@@ -20,3 +20,6 @@ Route::get('welcomee', function () {
                  VISTA(index)
     RUTA HTTP TIPO GET a un index
     ACTION [A,B,M]
+
+
+    LIBRERIA SANCTUM

@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Audit;
-use App\Traits;
+use App\Traits\AuditTrait;
 
 class StudentController extends Controller
 {
-    use auditTraits;
+    use AuditTrait;
     /**
      * Display a listing of the resource.
      */
@@ -44,6 +44,7 @@ class StudentController extends Controller
         $student->birthdate = $request->birthdate;
         $student->status = $request->status;
         $student->save();
+        $this->logChanges('Dió de alta','A',4);
     }
 
     /**
@@ -75,9 +76,10 @@ class StudentController extends Controller
         //dd($student);
         $student->name = $request->name;
         $student->save();
+        $this->logChanges('Modificó','M',3);
         return redirect()->route('students.index');
         
-       
+        
         }
     
 
@@ -89,8 +91,9 @@ class StudentController extends Controller
         
         //dd($id);
         Student::destroy($id);
+        $this->logChanges('Borró','B',6);
         return view ('student.delete');
         //return redirect()->route('students.index');
-
+        
     }
 }
