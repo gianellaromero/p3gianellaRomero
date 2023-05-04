@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Audit;
 use App\Traits\AuditTrait;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
@@ -15,7 +16,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        
+        $user = Auth::user();
+        //dd($user->id);
        $students = Student::All();
         //dd($students[0]->name);
        return view ('student.index',compact('students'));
@@ -44,7 +46,7 @@ class StudentController extends Controller
         $student->birthdate = $request->birthdate;
         $student->status = $request->status;
         $student->save();
-        $this->logChanges('Dió de alta','A',4);
+        $this->logChanges('Dió de alta','A');
     }
 
     /**
@@ -74,9 +76,10 @@ class StudentController extends Controller
         //dd($request->all());
         $student = Student::find($id);
         //dd($student);
+        $user = Auth::user();
         $student->name = $request->name;
         $student->save();
-        $this->logChanges('Modificó','M',3);
+        $this->logChanges('Modificó','M');
         return redirect()->route('students.index');
         
         
@@ -91,7 +94,8 @@ class StudentController extends Controller
         
         //dd($id);
         Student::destroy($id);
-        $this->logChanges('Borró','B',6);
+       
+        $this->logChanges('Borró','B');
         return view ('student.delete');
         //return redirect()->route('students.index');
         

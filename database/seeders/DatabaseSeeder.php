@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([StudentSeeder::class]);
         \App\Models\Student::factory(100)->create();
-
+        $this->call([UserSeeder::class]);
+        \App\Models\User::factory(10)->create();
     }
 }
