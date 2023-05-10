@@ -8,8 +8,13 @@ va apoder dar de alta asistencias con la condicion de que el sistema identifique
 los nombres de la tablas en ingles
 BUSCAR como hacer crud en laravel, carbon(fechas)
 para cada tabla en bd hay q crear un modelo.
-se puede usar boostrap en vistas para estilo(css) 
+se puede usar boostrap en vistas para estilo(css)
 
+CREAR MIGRACION CONTROLADOR Y MODELO DE MATERIA Y CARRERA.
+dsps sus relaciones
+ABM
+materia: id, nombre, dias , hora desde , hora hasta , tope 
+(PHP ARTISAN MAKE:MODEL -MC)
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,4 +27,6 @@ Route::get('welcomee', function () {
     ACTION [A,B,M]
 
 
+
     LIBRERIA SANCTUM
+    
