@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('name');
             $table->string('day');
-            $table->time('star_time');
+            $table->time('start_time');
             $table->time('end_time');
             $table->time('limit_time');
+            $table->unsignedBigInteger('student_id');
+            $table->timestamps();
         });
     }
 

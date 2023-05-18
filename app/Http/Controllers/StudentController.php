@@ -7,6 +7,8 @@ use App\Models\Student;
 use App\Models\Audit;
 use App\Traits\AuditTrait;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Subject;
+
 
 class StudentController extends Controller
 {
@@ -16,6 +18,16 @@ class StudentController extends Controller
      */
     public function index()
     {
+        $subjects = Subject::find(1);
+        //$subjects->student;
+        dd($subjects->student);
+      
+       
+        $student = Student::find(1);
+        //dd($student);
+        $student -> subjects;
+        dd($student);
+        
         $user = Auth::user();
         //dd($user->id);
        $students = Student::All();

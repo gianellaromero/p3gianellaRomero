@@ -19,6 +19,7 @@ return new class extends Migration
             $table->timestamps();
             $table->date('birthdate');
             $table->boolean('status');
+            //$table->unsignedBigInteger('subject_id');
 
 
         });
