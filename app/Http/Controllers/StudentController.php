@@ -8,6 +8,7 @@ use App\Models\Audit;
 use App\Traits\AuditTrait;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Subject;
+use App\Models\SettingSubject;
 
 
 class StudentController extends Controller
@@ -18,6 +19,8 @@ class StudentController extends Controller
      */
     public function index()
     {
+        $setting = Subject::find(2);
+        dd($setting->settingSubjects[0]->day,$setting->settingSubjects[1]->day);
         $subjects = Subject::find(1);
         //$subjects->student;
         dd($subjects->student);

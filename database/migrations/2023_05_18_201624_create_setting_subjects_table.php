@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('students', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('lastname');
-            $table->string('dni');
-            $table->date('birthdate');
-            $table->boolean('status');
+        Schema::create('setting_subjects', function (Blueprint $table) {
+            $table->unsignedBigInteger('subject_id');
+            $table->string('day');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->time('limit_time');
             $table->timestamps();
-            //$table->unsignedBigInteger('subject_id');
-
 
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('students');
+        Schema::dropIfExists('setting_subjects');
     }
 };
