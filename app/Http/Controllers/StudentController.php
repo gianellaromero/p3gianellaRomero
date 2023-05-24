@@ -19,20 +19,18 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $setting = Subject::find(2);
-        dd($setting->settingSubjects[0]->day,$setting->settingSubjects[1]->day);
+       /*$estudiante = Student::find(7);
+        $estudiante->subjects()->attach([1,2,3,4]);
+        $setting = Subject::find(1);
+        dd($setting->settingSubjects[1]->day,$setting->settingSubjects[2]->day);
         $subjects = Subject::find(1);
-        //$subjects->student;
-        dd($subjects->student);
-      
-       
+        dd($subjects->student)
         $student = Student::find(1);
-        //dd($student);
+        dd($student);
         $student -> subjects;
         dd($student);
-        
         $user = Auth::user();
-        //dd($user->id);
+        dd($user->id);*/
        $students = Student::All();
         //dd($students[0]->name);
        return view ('student.index',compact('students'));
