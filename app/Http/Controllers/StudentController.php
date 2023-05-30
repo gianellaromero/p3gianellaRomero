@@ -97,15 +97,11 @@ class StudentController extends Controller
         
         
         }
-    
-
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        
-        //dd($id);
         Student::destroy($id);
        
         $this->logChanges('Borró','B');
