@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AuditController;
+use App\Http\Controllers\AssitanceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +20,7 @@ use App\Http\Controllers\AuditController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('assistances',[AssistanceController::class,'index']);
 // Route::resource('students',StudentController::class);
 
 Route::get('audit',[AuditController::class, 'index']);
