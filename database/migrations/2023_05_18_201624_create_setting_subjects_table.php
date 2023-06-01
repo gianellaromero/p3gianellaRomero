@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('setting_subjects', function (Blueprint $table) {
             $table->unsignedBigInteger('subject_id');
-            $table->string('day');
+            $table->enum('day',[0,1,2,3,4,5,6]);
             $table->time('start_time');
             $table->time('end_time');
             $table->time('limit_time');

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Assistance;
 use Illuminate\Http\Request;
+use App\Models\Student;
+use Carbon\Carbon;
 
 class AssistanceController extends Controller
 {
@@ -12,7 +14,7 @@ class AssistanceController extends Controller
      */
     public function index()
     {
-        return view ('assistance');
+       // return view ('assistance');
     }
 
     /**
@@ -28,7 +30,46 @@ class AssistanceController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $estudiante = Student::where("dni",$request->dni)->first();
+
+
+        //dd($estudiante[0]->subjects);
+        $materias = $estudiante->subjects;
+        //dd(date('w'));
+        //dd(now());
+        $now = Carbon::now()->format('H:i:s');
+        //dd($materias);
+        foreach ($materias as $key =>$materia){
+           echo($materia);
+           $now = date('w');
+           $config = $materias[$key]->settingSubjects;
+
+           //dd($config);
+           $dia = $config[0]->day;
+           
+           if ($now == $dia){
+                
+                $key = 1;
+                dd($key);
+                //$k= $k+1;
+                
+
+           }
+           //dd('no llegó', $i);
+
+        }
+        foreach ($key as $k){
+            echo($k);
+        }
+        
+        $now = date('w');
+        dd($now);
+       $config = $materias[0]->settingSubjects;
+       dd($config[0]->start_time);
+       
+        //settingSubjects
+
+
     }
 
     /**

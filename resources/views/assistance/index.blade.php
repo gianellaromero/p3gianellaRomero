@@ -8,16 +8,10 @@
 </head>
 <body>
     <form action="{{route ('assistances.store')}}" method="post">
-        
     @CSRF
 
     <input type="text" name="dni" placeholder="Ingrese DNI">
     <input type="submit" value="Enviar">
-
-
-
-
-
 
     </form>
     hacer un formulario 

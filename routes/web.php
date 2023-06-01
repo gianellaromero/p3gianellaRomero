@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AuditController;
-use App\Http\Controllers\AssitanceController;
+use App\Http\Controllers\AssistanceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +20,7 @@ use App\Http\Controllers\AssitanceController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('assistances',[AssistanceController::class,'index']);
+//Route::get('assistances',[AssistanceController::class,'index']);
 // Route::resource('students',StudentController::class);
 
 Route::get('audit',[AuditController::class, 'index']);
@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('students',StudentController::class);
+    Route::resource('assistances',AssistanceController::class,['only'=>['create','store']]);
 });
 
 require __DIR__.'/auth.php';
