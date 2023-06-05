@@ -39,7 +39,7 @@ class SettingSubjectSeeder extends Seeder
             'day' => '2',
             'start_time' => '18:00:00',
             'end_time'=>'21:35:00',
-            'limit_time'=> '19:40:00',
+            'limit_time'=> '19:35:00',
         ]);
         DB::table('setting_subjects')->insert([
             'subject_id' => '4',
