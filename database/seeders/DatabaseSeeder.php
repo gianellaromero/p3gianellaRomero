@@ -21,8 +21,12 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call([StudentSeeder::class]);
-        \App\Models\Student::factory(100)->create();
+        // \App\Models\Student::factory(100)->create();
         $this->call([UserSeeder::class]);
-        \App\Models\User::factory(10)->create();
+        // \App\Models\User::factory(10)->create();
+        $this->call([SubjectSeeder::class]);
+        $this->call([SettingSubjectSeeder::class]);
+        $this->call([StudentSubjectSeeder::class]);
+       
     }
 }

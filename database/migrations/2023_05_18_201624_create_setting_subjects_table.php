@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('setting_subjects', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('subject_id');
             $table->enum('day',[0,1,2,3,4,5,6]);
             $table->time('start_time');

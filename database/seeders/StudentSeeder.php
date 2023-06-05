@@ -20,6 +20,13 @@ class StudentSeeder extends Seeder
             'birthdate'=>'2002-04-17',
             'status'=> '1',
         ]);
-
+        DB::table('students')->insert([
+            'name' => 'Bautista',
+            'lastname' => 'Amarillo',
+            'dni' => '43152510',
+            'birthdate'=>'2001-10-18',
+            'status'=> '1',
+        ]);
+        
     }
 }

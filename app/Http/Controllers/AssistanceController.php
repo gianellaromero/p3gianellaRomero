@@ -35,37 +35,44 @@ class AssistanceController extends Controller
 
         //dd($estudiante[0]->subjects);
         $materias = $estudiante->subjects;
-        //dd(date('w'));
+        //$now = Carbon::now()->setTimezone('America/Argentina/Buenos_Aires');
+
+        $time = Carbon::now()->format('H:i:s'); //hora actual
+        $day = date('w'); //dia actual
         //dd(now());
-        $now = Carbon::now()->format('H:i:s');
-        //dd($materias);
+        //dd($estudiante->id);
         foreach ($materias as $key =>$materia){
-           echo($materia);
-           $now = date('w');
-           $config = $materias[$key]->settingSubjects;
-
-           //dd($config);
-           $dia = $config[0]->day;
            
-           if ($now == $dia){
+           $config = $materias[$key]->settingSubjects; //meto en una variable la config de la primer materia recorrida
+           //dd($config);
+           $dia = $config[0]->day; //guardo solo el dia de la config
+           $start_time = $config[0]->start_time;
+           $limit_time = $config[0]->limit_time;
+         
+            //echo ($materia);
+            //$asistencia = New Assistance();
+              //dd($request->name);
+          
+           if (($day == $dia) && ($time >= $start_time && $time <= $limit_time)){
+                echo($dia);
+                $asistencia = New Assistance();
+                $asistencia->student_id = $estudiante->id;
+                $asistencia->subject_id = $materia->id;
+                $asistencia->save();
+              
                 
-                $key = 1;
-                dd($key);
-                //$k= $k+1;
-                
-
-           }
-           //dd('no llegó', $i);
+             
+                    }
 
         }
-        foreach ($key as $k){
-            echo($k);
-        }
+        /*foreach ($is as $i){
+            echo($i);
+        }*/
         
-        $now = date('w');
+        /*$now = date('w');
         dd($now);
        $config = $materias[0]->settingSubjects;
-       dd($config[0]->start_time);
+       dd($config[0]->start_time);*/
        
         //settingSubjects
 
