@@ -59,10 +59,7 @@ class AssistanceController extends Controller
                 $asistencia->student_id = $estudiante->id;
                 $asistencia->subject_id = $materia->id;
                 $asistencia->save();
-              
-                
-             
-                    }
+              }
 
         }
         /*foreach ($is as $i){

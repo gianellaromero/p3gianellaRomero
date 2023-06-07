@@ -37,4 +37,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('assistances',AssistanceController::class,['only'=>['create','store']]);
 });
 
+Route::get('/token', function () {
+    return csrf_token(); 
+});
+
 require __DIR__.'/auth.php';

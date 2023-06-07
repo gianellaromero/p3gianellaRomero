@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\Subject;
 class SubjectSeeder extends Seeder
 {
     /**
@@ -12,29 +13,29 @@ class SubjectSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('subjects')->insert([
-            'name' => 'Práctica Profesionalizante 3',
+        Subject::create([
+            'name'=> 'Práctica Profesionalizante 3', 
         ]);
-        DB::table('subjects')->insert([
-            'name' => 'Análisis Y Diseño de Sistemas 2',
+        Subject::create([
+            'name'=> 'Análisis Y Diseño de Sistemas 2', 
         ]);
-        DB::table('subjects')->insert([
-            'name' => 'Derechos Humanos y Ciudadanía',
+        Subject::create([
+            'name'=> 'Derechos Humanos y Ciudadanía', 
         ]);
-        DB::table('subjects')->insert([
-            'name' => 'Programación 3',
+        Subject::create([
+            'name'=> 'Programación 3', 
         ]);
-        DB::table('subjects')->insert([
-            'name' => 'Ingeniería de Software',
+        Subject::create([
+            'name'=> 'Ingeniería de Software', 
         ]);
-        DB::table('subjects')->insert([
-            'name' => 'Probabilidad y Estadistica',
+        Subject::create([
+            'name'=> 'Probabilidad y Estadistica', 
         ]);
-        DB::table('subjects')->insert([
-            'name' => 'Programación Dispositivos Móviles',
+        Subject::create([
+            'name'=> 'Programación Dispositivos Móviles', 
         ]);
-        DB::table('subjects')->insert([
-            'name' => 'Auditoría de Sistemas',
-        ]); 
+        Subject::create([
+            'name'=> 'Auditoría de Sistemas', 
+        ]);
     }
 }
