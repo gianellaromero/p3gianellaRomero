@@ -14,8 +14,6 @@
     <input type="submit" value="Enviar">
 
     </form>
-    hacer un formulario 
-    apuntar una ruta en web.php
-    capturar ruta y apuntar al controlador
+  
 </body>
 </html>

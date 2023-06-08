@@ -32,8 +32,12 @@ class AssistanceController extends Controller
     {
         $estudiante = Student::where("dni",$request->dni)->first();
 
-
-        //dd($estudiante[0]->subjects);
+         if ($estudiante == null){
+           // return redirect()->route('assistances.create');
+           return view ('assistance.store');
+         }
+         else {
+     
         $materias = $estudiante->subjects;
         //$now = Carbon::now()->setTimezone('America/Argentina/Buenos_Aires');
 
@@ -45,14 +49,10 @@ class AssistanceController extends Controller
            
            $config = $materias[$key]->settingSubjects; //meto en una variable la config de la primer materia recorrida
            //dd($config);
-           $dia = $config[0]->day; //guardo solo el dia de la config
+           $dia = $config[0]->day; 
            $start_time = $config[0]->start_time;
            $limit_time = $config[0]->limit_time;
          
-            //echo ($materia);
-            //$asistencia = New Assistance();
-              //dd($request->name);
-          
            if (($day == $dia) && ($time >= $start_time && $time <= $limit_time)){
                 echo($dia);
                 $asistencia = New Assistance();
@@ -62,6 +62,7 @@ class AssistanceController extends Controller
               }
 
         }
+    }
         /*foreach ($is as $i){
             echo($i);
         }*/

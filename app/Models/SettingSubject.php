@@ -14,7 +14,7 @@ class SettingSubject extends Model
         'day',
         'start_time',
         'end_time',
-        'limit_tope',
+        'limit_time',
     ];
 
     public function subject(): BelongsTo

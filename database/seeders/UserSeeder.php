@@ -17,14 +17,14 @@ class UserSeeder extends Seeder
         User::create([
             'name'=> 'Gianella Romero', 
             'email' => 'romerogianella@gmail.com',
-            'email_verified_at' => '2023-06-07 19:06:25',
+            'email_verified_at' => now(),
             'password' => 'gianella',
             'remember_token' => '123456',
         ]);
         User::create([
             'name'=> 'Administrador', 
             'email' => 'admin@admin.com',
-            'email_verified_at' => '2023-06-07 19:06:25',
+            'email_verified_at' => now(),
             'password' => 'admin',
             'remember_token' => '4321',
         ]);
