@@ -9,12 +9,13 @@
 <body>
 <form action="{{route ('assistances.create')}}">
  
-    <table style="margin:0 auto; widht: 100%; border: 3px solid #73AD21;
+    <table style="margin-top:220px;  widht: 300%; border: 1px solid ;
   padding: 10px;">
        
-   <td> El DNI ingresado no es valido  <br>
+   <td> El DNI ingresado no es valido
    
-    <input type="submit" value="Volver" > </td>
+    <input type="submit" value="Volver" style="BORDER: rgb(128,128,128) 1px solid; FONT-SIZE: 10pt; FONT-FAMILY: Verdana; 
+         BACKGROUND-COLOR: rgb(233,233,233)"> </td>
    
     </table>
    
