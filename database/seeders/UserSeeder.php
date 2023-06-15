@@ -18,14 +18,14 @@ class UserSeeder extends Seeder
             'name'=> 'Gianella Romero', 
             'email' => 'romerogianella@gmail.com',
             'email_verified_at' => now(),
-            'password' => 'gianella',
+            'password' => bcrypt('gianella'),
             'remember_token' => '123456',
         ]);
         User::create([
             'name'=> 'Administrador', 
             'email' => 'admin@admin.com',
             'email_verified_at' => now(),
-            'password' => 'admin',
+            'password' => bcrypt('admin'),
             'remember_token' => '4321',
         ]);
         

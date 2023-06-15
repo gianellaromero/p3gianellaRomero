@@ -15,7 +15,7 @@ trait AuditTrait
     $audit = Audit::create([
       'log' => $log,
       'action' => $action,
-      'user_id' => $user->id
+      'user_id' => $user,
     ]) ;
 
 }

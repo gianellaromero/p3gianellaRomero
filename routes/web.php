@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AuditController;
 use App\Http\Controllers\AssistanceController;
+use App\Http\Controllers\SubjectController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +36,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('students',StudentController::class);
     Route::resource('assistances',AssistanceController::class,['only'=>['create','store']]);
+    Route::resource('subjects',SubjectController::class);
+    Route::resource('settingSubjects',SubjectController::class);
 });
 
 Route::get('/token', function () {

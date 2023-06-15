@@ -9,7 +9,7 @@
 <body>
 <form action="{{route ('assistances.create')}}">
  
-    <table style="margin-top:220px;  widht: 300%; border: 1px solid ;
+    <table style="margin-top:0px;  widht: 300%; border: 1px solid ;
   padding: 10px;">
        
    <td> El DNI ingresado no es valido

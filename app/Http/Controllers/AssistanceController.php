@@ -31,7 +31,7 @@ class AssistanceController extends Controller
     public function store(Request $request)
     {
         $estudiante = Student::where("dni",$request->dni)->first();
-
+        
          if ($estudiante == null){
            // return redirect()->route('assistances.create');
            return view ('assistance.store');
@@ -45,37 +45,34 @@ class AssistanceController extends Controller
         $day = date('w'); //dia actual
         //dd(now());
         //dd($estudiante->id);
+     
         foreach ($materias as $key =>$materia){
-           
+           //dd($materia->settingSubjects);
            $config = $materias[$key]->settingSubjects; //meto en una variable la config de la primer materia recorrida
-           //dd($config);
-           $dia = $config[0]->day; 
-           $start_time = $config[0]->start_time;
-           $limit_time = $config[0]->limit_time;
-         
-           if (($day == $dia) && ($time >= $start_time && $time <= $limit_time)){
-                echo($dia);
-                $asistencia = New Assistance();
-                $asistencia->student_id = $estudiante->id;
-                $asistencia->subject_id = $materia->id;
-                $asistencia->save();
-              }
+          //dd($config);
+          
+          foreach ($config as $c){
+          
+           $dia = $c->day; 
+           $start_time = $c->start_time;
+           $limit_time = $c->limit_time;
+           $this->validaYGuardaAsistencia($day,$dia,$time,$start_time,$limit_time,$estudiante,$materia);
+          }
+        }
 
         }
     }
-        /*foreach ($is as $i){
-            echo($i);
-        }*/
-        
-        /*$now = date('w');
-        dd($now);
-       $config = $materias[0]->settingSubjects;
-       dd($config[0]->start_time);*/
-       
-        //settingSubjects
 
-
-    }
+            public function validaYGuardaAsistencia($day,$dia,$time,$start_time,$limit_time,$estudiante,$materia){
+            //dd('llegò');
+             if (($day == $dia) && ($time >= $start_time && $time <= $limit_time)){
+               $asistencia = New Assistance();
+               $asistencia->student_id = $estudiante->id;
+               $asistencia->subject_id = $materia->id;
+               $asistencia->save();
+             // echo('Guardado con exito');
+   }
+   }
 
     /**
      * Display the specified resource.

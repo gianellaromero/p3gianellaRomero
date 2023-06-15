@@ -90,6 +90,7 @@ class StudentController extends Controller
         $student = Student::find($id);
         //dd($student);
         $user = Auth::user();
+        //dd($user);
         $student->name = $request->name;
         $student->save();
         $this->logChanges('Modificó','M');

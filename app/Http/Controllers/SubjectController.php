@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use App\Models\SettingSubject;
 
 class SubjectController extends Controller
 {
@@ -12,9 +13,9 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        $subjects = Subject::find(1);
-        dd($subjects);
-      $subjects->student;
+        //dd('llegó');
+        //$subjects = Subject::find(1);
+        return view ('subject.index',);
       
     }
 
@@ -31,7 +32,18 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+        $materia = new Subject();
+        $materia->name = $request->name;
+        $guardado = $materia->save();
+        if ($guardado == true){
+            return view ('settingSubject.index',);
+        }
+        else {
+            dd('error');
+        }
+       
+        
     }
 
     /**

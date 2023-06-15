@@ -12,8 +12,18 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                  <!--  <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
+                    </x-nav-link>-->
+
+                    <x-nav-link :href="route ('students.index')" >
+                        Alumnos
+                    </x-nav-link>
+                    <x-nav-link :href="route ('assistances.create')" >
+                        Asistencias
+                    </x-nav-link>
+                    <x-nav-link :href="route ('subjects.index')" >
+                        Materia
                     </x-nav-link>
                 </div>
             </div>
