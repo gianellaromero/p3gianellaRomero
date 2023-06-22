@@ -32,12 +32,14 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-       
+    
         $materia = new Subject();
         $materia->name = $request->name;
         $guardado = $materia->save();
+        $id_materia = $materia->id;
+       
         if ($guardado == true){
-            return view ('settingSubject.index',);
+            return view ('settingSubject.index',compact('id_materia'));
         }
         else {
             dd('error');

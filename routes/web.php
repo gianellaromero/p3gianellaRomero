@@ -6,6 +6,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AuditController;
 use App\Http\Controllers\AssistanceController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\SettingSubjectController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,7 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('students',StudentController::class);
     Route::resource('assistances',AssistanceController::class,['only'=>['create','store']]);
     Route::resource('subjects',SubjectController::class);
-    Route::resource('settingSubjects',SubjectController::class);
+    Route::resource('settingSubjects',SettingSubjectController::class);
 });
 
 Route::get('/token', function () {
