@@ -7,6 +7,7 @@ use App\Http\Controllers\AuditController;
 use App\Http\Controllers\AssistanceController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\SettingSubjectController;
+use App\Models\Student;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,8 +30,13 @@ Route::get('audit',[AuditController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
+    
 })->middleware(['auth', 'verified'])->name('dashboard');
-
+/*Route::get('/students', function () {
+    $students = Student::All();
+    return $students->tojson();
+    
+});*/
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
