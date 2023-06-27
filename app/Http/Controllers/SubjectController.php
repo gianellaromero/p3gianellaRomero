@@ -32,20 +32,36 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-    
-        $materia = new Subject();
-        $materia->name = $request->name;
-        $guardado = $materia->save();
-        $id_materia = $materia->id;
-       
-        if ($guardado == true){
-            return view ('settingSubject.index',compact('id_materia'));
-        }
-        else {
-            dd('error');
-        }
-       
         
+        $materia_bdd = Subject::where('name',$request->name)->get();
+
+       //dd($materia_bdd, $request->name);
+       if(isset($materia_bdd[0]->name)) {
+        $materia_existente = $materia_bdd[0]->name;
+        
+       } else {
+        $materia_existente =  '';
+        
+       } 
+     
+      
+        if ($request->name == $materia_existente ){
+
+            echo 'error ya existe';}
+
+                else{
+                $materia = new Subject();
+                $materia->name = $request->name;
+                $guardado = $materia->save();
+                $id_materia = $materia->id;
+                if ($guardado == true){
+                    return view ('settingSubject.index',compact('id_materia'));
+                }
+                else {
+                    dd('error');
+                }
+            }
+
     }
 
     /**

@@ -31,7 +31,8 @@ class SettingSubjectController extends Controller
        // dd($request);
        // $config = new SettingSubject();
         foreach ($request->day as $dia){
-            $config = new SettingSubject();
+            $config = new SettingSubject(); 
+            
             $config->subject_id = $request->subject_id;
             $config->day = $dia;
             $config->start_time = $request->start_time[$dia-1];
