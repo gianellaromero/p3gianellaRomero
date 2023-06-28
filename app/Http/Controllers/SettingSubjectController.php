@@ -12,7 +12,7 @@ class SettingSubjectController extends Controller
      */
     public function index()
     {
-        //
+   
     }
 
     /**
@@ -56,7 +56,7 @@ class SettingSubjectController extends Controller
      */
     public function edit(SettingSubject $settingSubject)
     {
-        //
+       
     }
 
     /**
@@ -64,7 +64,7 @@ class SettingSubjectController extends Controller
      */
     public function update(Request $request, SettingSubject $settingSubject)
     {
-        //
+        ('llegò');
     }
 
     /**

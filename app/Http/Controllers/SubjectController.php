@@ -15,7 +15,9 @@ class SubjectController extends Controller
     {
         //dd('llegó');
         //$subjects = Subject::find(1);
-        return view ('subject.index',);
+        $subjects = Subject::All();
+        //dd($subjects);
+       return view ('subject.index',compact('subjects'));
       
     }
 
@@ -77,7 +79,10 @@ class SubjectController extends Controller
      */
     public function edit(Subject $subject)
     {
-        //
+       
+        $subject = Subject::where('id',$subject->id)->get();
+        //dd($subject);
+        return view ('settingSubject.edit',compact('subject'));
     }
 
     /**
@@ -93,6 +98,6 @@ class SubjectController extends Controller
      */
     public function destroy(Subject $subject)
     {
-        //
+        dd('llegó');
     }
 }
