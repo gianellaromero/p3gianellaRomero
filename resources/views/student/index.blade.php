@@ -17,6 +17,15 @@
                         <th>Acciones</th>
                     </tr>
                 </thead>
+                @foreach ($settingSubjects as $clave => $setting) 
+      clave : {{$clave+1}} <br>
+      dia: {{$settingSubjects[$clave]->day}} <br>
+     @if ($settingSubjects[$clave]->day == $clave+1) 
+        llegó <br>
+      @endif
+     
+          @endforeach  
+            
 
                 @foreach ($students as $student)
                 <tr>

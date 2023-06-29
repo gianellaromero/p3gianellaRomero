@@ -90,30 +90,3 @@
         <option name="day" value="4"> Jueves</option>
         <option name="day" value="5"> Viernes</option>
     </select> <p></p>
-    
-    
-              Lunes: <input type="checkbox" name="day[]" value="1" > <p></p>
-           Fecha inicio: <input type="time" name="start_time[]" > <p></p>
-           Fecha fin: <input type="time" name="end_time[]" > <p></p>
-           Fecha limite: <input type="time" name="limit_time[]" > <p></p>
-      
-   
-           Martes: <input type="checkbox" name="day[]" value="2" > <p></p>
-           Fecha inicio: <input type="time" name="start_time[]" > <p></p>
-           Fecha fin: <input type="time" name="end_time[]" > <p></p>
-           Fecha limite: <input type="time" name="limit_time[]" > <p></p>
-     
-           Miercoles <input type="checkbox" name="day[]" value="3" > <p></p>
-           Fecha inicio: <input type="time" name="start_time[]" > <p></p>
-           Fecha fin: <input type="time" name="end_time[]" > <p></p>
-           Fecha limite: <input type="time" name="limit_time[]" > <p></p>
-
-           Jueves <input type="checkbox" name="day[]" value="4" > <p></p>
-           Fecha inicio: <input type="time" name="start_time[]" > <p></p>
-           Fecha fin: <input type="time" name="end_time[]" > <p></p>
-           Fecha limite: <input type="time" name="limit_time[]" > <p></p>
-
-           Viernes <input type="checkbox" name="day[]" value="5" > <p></p>
-           Fecha inicio: <input type="time" name="start_time[]" > <p></p>
-           Fecha fin: <input type="time" name="end_time[]" > <p></p>
-           Fecha limite: <input type="time" name="limit_time[]" > <p></p>-!>

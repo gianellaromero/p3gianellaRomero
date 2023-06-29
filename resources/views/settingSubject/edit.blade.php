@@ -6,17 +6,29 @@
     <title>Document</title>
 </head>
 <body>
-<form action="{{route ('settingSubjects.update',$settingSubjects[0]->id)}}" method="post">
+
+
+<form action="" method="post">
     @CSRF
     @method('put')
-    <div style="text-align: center">
-        <input type="text" name="day" value="{{$settingSubjects[0]->day}}" /> <br />
-        <input type="text" name="lastname" value="{{$settingSubjects[0]->start_time}}" /> <br />
-        <input type="number" name="dni" value="{{$settingSubjects[0]->end_time}}" /> <br />
-        <input type="date" name="birthdate" value="{{$settingSubjects[0]->limit_time}}" /><br />
-        <input type="submit" value="Guardar" />
-    </div>
-</form>
+        
+   
+     @foreach ($settingSubjects as $clave => $setting) 
+    
+    @if ($setting->day == $clave+1)
+    {{ env($setting->day)}}<input type="checkbox" checked name="day[]" value="{{$setting->day}}">
+     <p></p>
+     Fecha inicio: <input type="time" name="start_time[]" value="{{$setting->start_time}}">
+     <p></p>
+     Fecha fin: <input type="time" name="end_time[]" value="{{$setting->end_time}}">
+     <p></p>
+     Fecha limite: <input type="time" name="limit_time[]"  value="{{$setting->limit_time}}">
+     <p></p>
+     @endif
 
+          @endforeach      
+            </form>
+    </div>
+</form> 
 </body>
 </html>

@@ -77,12 +77,15 @@ class SubjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Subject $subject)
+    public function edit($subject_id)
     {
        
-        $subject = Subject::where('id',$subject->id)->get();
-        //dd($subject);
-        return view ('settingSubject.edit',compact('subject'));
+        $subject = Subject::find($subject_id);
+       
+       $settingSubjects = $subject->settingSubjects;
+      
+     
+        return view ('settingSubject.edit',compact('subject','settingSubjects'));
     }
 
     /**
