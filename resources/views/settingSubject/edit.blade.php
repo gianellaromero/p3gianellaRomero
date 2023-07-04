@@ -12,21 +12,35 @@
     @CSRF
     @method('put')
         
-   
-     @foreach ($settingSubjects as $clave => $setting) 
+    @php
+    $n = 0
+    @endphp
     
-    @if ($setting->day == $clave+1)
-    {{ env($setting->day)}}<input type="checkbox" checked name="day[]" value="{{$setting->day}}">
-     <p></p>
-     Fecha inicio: <input type="time" name="start_time[]" value="{{$setting->start_time}}">
-     <p></p>
-     Fecha fin: <input type="time" name="end_time[]" value="{{$setting->end_time}}">
-     <p></p>
-     Fecha limite: <input type="time" name="limit_time[]"  value="{{$setting->limit_time}}">
-     <p></p>
-     @endif
+    @for ($i = 1; $i <= 5; $i++) 
+     @if(isset($settingSubjects[$n]->day) and ($settingSubjects[$n]->day == $i))
 
-          @endforeach      
+{{ env($settingSubjects[$n]->day)}}<input type="checkbox" checked name="day[]" value="{{$settingSubjects[$n]->day}}">
+ <p></p>
+ Fecha inicio: <input type="time" name="start_time[]" value="{{$settingSubjects[$n]->start_time}}">
+ <p></p>
+ Fecha fin: <input type="time" name="end_time[]" value="{{$settingSubjects[$n]->end_time}}">
+ <p></p>
+ Fecha limite: <input type="time" name="limit_time[]"  value="{{$settingSubjects[$n]->limit_time}}">
+ <p></p>
+ @php $n = $n + 1
+ @endphp
+
+@else 
+{{ env($i)}} <input type="checkbox" name="day[]" value="{{$i}}">
+ <p></p>
+ Fecha inicio: <input type="time" name="start_time[]" >
+ <p></p>
+ Fecha fin: <input type="time" name="end_time[]" >
+ <p></p>
+ Fecha limite: <input type="time" name="limit_time[]"  > <p></p>
+ 
+ @endif
+          @endfor    
             </form>
     </div>
 </form> 

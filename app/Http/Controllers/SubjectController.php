@@ -81,11 +81,21 @@ class SubjectController extends Controller
     {
        
         $subject = Subject::find($subject_id);
-       
+       //dd($subject);
        $settingSubjects = $subject->settingSubjects;
-      
-     
-        return view ('settingSubject.edit',compact('subject','settingSubjects'));
+      //dd($settingSubjects);
+
+    /*for ($i = 1 ; $i <= 5; $i++)
+   
+    if(isset($settingSubjects[$n]->day) == $i){
+        echo "llegó";
+        $n = $n +1;
+    }
+    else{
+        echo 'no llegó';
+    }*/
+
+   return view ('settingSubject.edit',compact('settingSubjects'));
     }
 
     /**
