@@ -60,6 +60,7 @@ class StudentController extends Controller
         $student->status = $request->status;
         $student->save();
         $this->logChanges('Dió de alta','A');
+        return view('student.creado_exito');
     }
 
     /**

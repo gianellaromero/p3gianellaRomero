@@ -28,21 +28,28 @@ class SettingSubjectController extends Controller
      */
     public function store(Request $request)
     { 
-       // dd($request);
+       dd($request);
        // $config = new SettingSubject();
-        foreach ($request->day as $dia){
-            $config = new SettingSubject(); 
-            
-            $config->subject_id = $request->subject_id;
-            $config->day = $dia;
-            $config->start_time = $request->start_time[$dia-1];
-            $config->end_time = $request->end_time[$dia-1];
-            $config->limit_time = $request->limit_time[$dia-1];
-            $config->save();
-        }
-       
-    }
+       $n = 0;
+       for ($i = 1; $i <= 5; $i++){
 
+            if (($request->day) and ($request[$n]->day == $i)){
+                $config = new SettingSubject(); 
+                $config->subject_id = $request->subject_id;
+                $config->day = $dia;
+                $config->start_time = $request->start_time[$n];
+                $config->end_time = $request->end_time[$n];
+                $config->limit_time = $request->limit_time[$n];
+                $config->save();
+                $n = $n+1;
+            }
+            else{
+
+            dd('error');
+        }
+    } 
+    }
+    
     /**
      * Display the specified resource.
      */
@@ -64,7 +71,7 @@ class SettingSubjectController extends Controller
      */
     public function update(Request $request, SettingSubject $settingSubject)
     {
-        ('llegò');
+        dd('llegò');
     }
 
     /**

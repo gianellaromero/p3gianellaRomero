@@ -21,8 +21,9 @@
               <br> <br>
               <div class="container text-center" style="background-color: pink;">
                      <div class="row">
+                            @for ($i = 1; $i <= 5; $i++)
                             <div class="col">
-                                   Lunes: <input type="checkbox" name="day[]" value="1">
+                                   {{env($i)}} <input type="checkbox" name="day[]" value="{{$i}}">
                                    <p></p>
                                    Fecha inicio: <input type="time" name="start_time[]">
                                    <p></p>
@@ -30,47 +31,11 @@
                                    <p></p>
                                    Fecha limite: <input type="time" name="limit_time[]">
                                    <p></p>
+                                   
                             </div>
-                            <div class="col">
-                                   Martes: <input type="checkbox" name="day[]" value="2">
-                                   <p></p>
-                                   Fecha inicio: <input type="time" name="start_time[]">
-                                   <p></p>
-                                   Fecha fin: <input type="time" name="end_time[]">
-                                   <p></p>
-                                   Fecha limite: <input type="time" name="limit_time[]">
-                                   <p></p>
-                            </div>
-                            <div class="col">
-                                   Miercoles <input type="checkbox" name="day[]" value="3">
-                                   <p></p>
-                                   Fecha inicio: <input type="time" name="start_time[]">
-                                   <p></p>
-                                   Fecha fin: <input type="time" name="end_time[]">
-                                   <p></p>
-                                   Fecha limite: <input type="time" name="limit_time[]">
-                                   <p></p>
-                            </div>
-                            <div class="col">
-                                   Jueves <input type="checkbox" name="day[]" value="4">
-                                   <p></p>
-                                   Fecha inicio: <input type="time" name="start_time[]">
-                                   <p></p>
-                                   Fecha fin: <input type="time" name="end_time[]">
-                                   <p></p>
-                                   Fecha limite: <input type="time" name="limit_time[]">
-                                   <p></p>
-                            </div>
-                            <div class="col">
-                                   Viernes <input type="checkbox" name="day[]" value="5">
-                                   <p></p>
-                                   Fecha inicio: <input type="time" name="start_time[]">
-                                   <p></p>
-                                   Fecha fin: <input type="time" name="end_time[]">
-                                   <p></p>
-                                   Fecha limite: <input type="time" name="limit_time[]">
-                                   <p></p>
-                            </div>
+                            @endfor
+                            
+                            
                      </div>
               </div>
               <input type="submit" value="Enviar" style="margin-top:7px; width: 13.33%;margin-left: 50%;transform: translateX(-50%); border: 1px solid ;
@@ -83,11 +48,3 @@
        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
        crossorigin="anonymous"></script>
 
-<!-- Seleccionar dia: <select name="day" id="1">
-        <option name="Seleccionar" > Seleccionar dia</option>
-        <option name="day" value="1"> Lunes</option>
-        <option name="day" value="2"> Martes</option>
-        <option name="day" value="3"> Miercoles</option>
-        <option name="day" value="4"> Jueves</option>
-        <option name="day" value="5"> Viernes</option>
-    </select> <p></p>

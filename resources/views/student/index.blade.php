@@ -7,6 +7,7 @@
         <title>Document</title>
     </head>
     <body>
+        <h1>Estudiantes</h1>
             <table border="2">
                 <thead>
                     <tr>
@@ -17,14 +18,6 @@
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                @foreach ($settingSubjects as $clave => $setting) 
-      clave : {{$clave+1}} <br>
-      dia: {{$settingSubjects[$clave]->day}} <br>
-     @if ($settingSubjects[$clave]->day == $clave+1) 
-        llegó <br>
-      @endif
-     
-          @endforeach  
             
 
                 @foreach ($students as $student)
@@ -45,6 +38,11 @@
 
                 @endforeach
             </table>
+            <form action="{{route ('students.create')}}" method="get">
+                @csrf
+                
+               <h4> Añadir Alumno: <input type="submit" value="Agregar"> </h4>
+            </form>
         
     </body>
 </html>

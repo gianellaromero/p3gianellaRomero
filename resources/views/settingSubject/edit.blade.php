@@ -11,11 +11,8 @@
 
 <body>
 
-
-    <form action="" method="post">
+    <form action="{{route ('settingSubjetcs.update',$subject[0]->id)}}" method="post">
         @CSRF
-        @method('put')
-
         @php
         $n = 0
         @endphp <br>
