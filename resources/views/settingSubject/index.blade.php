@@ -15,9 +15,10 @@
 
        <form action="{{route ('settingSubjects.store')}}" method="post">
               @csrf
+              <br>
               <input type="hidden" name="subject_id" value="{{$id_materia}}">
-              <h1 style="text-align: center">Configuración de la materia </h1>
-              <br> <br> <br>
+              <h2 style="text-align: center">Configuración de la materia </h2>
+              <br> <br>
               <div class="container text-center" style="background-color: pink;">
                      <div class="row">
                             <div class="col">
