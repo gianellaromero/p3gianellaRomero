@@ -10,19 +10,18 @@
 </head>
 
 <body>
-
-    <form action="{{route ('settingSubjetcs.update',$subject[0]->id)}}" method="post">
-        @CSRF
         @php
         $n = 0
         @endphp <br>
         <h2 style="text-align: center">Editar la configuración de la materia </h2>
               <br> <br> 
-        <div class="container text-center" style="background-color: pink;">
+              <input type="hidden" name="subject_id" value="{{$subject_id}}">
+            <div class="container text-center" style="background-color: pink;">
             <div class="row">
                 
         @for ($i = 1; $i <= 5; $i++) @if(isset($settingSubjects[$n]->day) and ($settingSubjects[$n]->day == $i))
         <div class="col">
+            
                         {{ env($settingSubjects[$n]->day)}}<input type="checkbox" checked name="day[]"
                             value="{{$settingSubjects[$n]->day}}">
                         <p></p>
@@ -51,11 +50,21 @@
                     </div>
                 
             @endif
-
             @endfor
         </div>
     </div>
-    </form>
+    <form action="{{route ('settingSubjects.update',$subject_id)}}" method="post">
+        @CSRF
+        @method('put')
+        
+            
+        <input type="hidden" name="start_time[]">
+     
+            <input type="submit" value="Enviar" style="margin-top:7px; width: 13.33%;margin-left: 50%;transform: translateX(-50%); border: 1px solid ;
+              padding: 3px;">
+             
+        </form>
+    
 </body>
 
 </html>
