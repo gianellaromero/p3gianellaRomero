@@ -37,7 +37,7 @@ Ejemplo:
 - Students
 - Subjects
 - Careers
-- Assistance
+- Assistances
 
 ## 🚀 Estado del proyecto
 En desarrollo
